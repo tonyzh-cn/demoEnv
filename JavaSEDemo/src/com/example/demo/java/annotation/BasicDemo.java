@@ -1,7 +1,6 @@
 package com.example.demo.java.annotation;
 
 public class BasicDemo {
-	@Test("")
 	private static String value;
 
 	@ParamValidators({"id,age#"+ParamValidate.INT,"name#"+ParamValidate.STRING})

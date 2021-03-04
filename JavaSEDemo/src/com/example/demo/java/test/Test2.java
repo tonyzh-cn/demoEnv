@@ -2,20 +2,17 @@ package com.example.demo.java.test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Test2 {
     public static void main(String[] args ) {
-        Integer i = 1;
-        int h;
-        System.out.println((h = i.hashCode()) ^ (h >>> 16));
-
-        String s = "1";
-        System.out.println((h = s.hashCode()) ^ (h >>> 16));
-
-        System.out.println(s.equals(i));
+        Random random = new Random();
+        for(int i=0;i<100;i++){
+            System.out.println(random.nextInt(10));
+        }
     }
 
 
