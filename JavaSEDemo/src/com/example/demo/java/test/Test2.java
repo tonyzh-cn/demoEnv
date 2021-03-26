@@ -1,21 +1,23 @@
 package com.example.demo.java.test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Test2 {
     public static void main(String[] args ) {
-        Random random = new Random();
-        for(int i=0;i<100;i++){
-            System.out.println(random.nextInt(10));
-        }
+        System.out.println("1,2，3".replaceAll(",|，",";"));
     }
 
 
+    private static String resolveSolrField(String fieldName) {
+        fieldName = fieldName.replace("__",".").replace("_",".");
+        List<String> splittedField = new ArrayList<>(Arrays.asList(fieldName.split("\\.")));
+        List<String> finalField = splittedField.subList(1,splittedField.size()-1);
+
+        return String.join(".",finalField);
+    }
 
     private String match(String content,String reg){
         String fieldValue="";
