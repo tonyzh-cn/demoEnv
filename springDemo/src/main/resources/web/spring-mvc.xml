@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@Controller注解的类是控制器 -->
-	<context:component-scan base-package="com.example.demo.springDemo.bean.scope"/>
+	<context:component-scan base-package="com.example.demo.springDemo.bean.scope.web"/>
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 	

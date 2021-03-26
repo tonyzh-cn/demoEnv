@@ -13,7 +13,7 @@ public class SmartInstantiationAwareBeanPostProcessorDemo {
         beanFactory.addBeanPostProcessor(new SmartInstantiationAwareBeanPostProcessorDemo.MySmartInstantiationAwareBeanPostProcessor());
 
         Student student = beanFactory.getBean("student",Student.class);
-        Teacher teacher = beanFactory.getBean("teacher",Teacher.class);
+        Teacher teacher = beanFactory.getBean("rootTeacher",Teacher.class);
 
         System.out.println(student.getTeacher() == teacher);
         System.out.println(teacher.getStudent() == student);

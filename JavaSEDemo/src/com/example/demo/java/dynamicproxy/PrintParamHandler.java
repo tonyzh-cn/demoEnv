@@ -18,7 +18,7 @@ public class PrintParamHandler<T> implements InvocationHandler {
 	     */
 	    @Override
 	    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-	        System.out.println(method.getName() + "方法参数为："+args);
+	        System.out.println("method name:"+method.getName() + " => method args:"+args);
 	        return method.invoke(target, args);
 	    }
 	}

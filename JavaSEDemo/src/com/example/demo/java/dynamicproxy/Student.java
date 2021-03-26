@@ -14,7 +14,7 @@ public class Student implements Person {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       System.out.println(name + "上交班费50元");
+       System.out.println("execute method giveMoney");
     }
 
     @Override

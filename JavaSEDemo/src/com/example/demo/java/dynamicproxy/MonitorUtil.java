@@ -11,6 +11,6 @@ public class MonitorUtil {
     //结束时打印耗时
     public static void finish(String methodName) {
         long finishTime = System.currentTimeMillis();
-        System.out.println(methodName + "方法耗时" + (finishTime - tl.get()) + "ms");
+        System.out.println(methodName + " took " + (finishTime - tl.get()) + "ms");
     }
 }

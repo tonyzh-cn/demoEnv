@@ -7,11 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 @Controller
 @RequestMapping("")
 public class IndexController {
@@ -19,6 +14,7 @@ public class IndexController {
     ApplicationContext applicationContext;
     @Autowired
     private User user;
+
     @RequestMapping("index.html")
     public String index(Model model){
         User u =applicationContext.getBean("user",User.class);
@@ -27,4 +23,5 @@ public class IndexController {
         model.addAttribute("userObject",user);
         return "index";
     }
+
 }
