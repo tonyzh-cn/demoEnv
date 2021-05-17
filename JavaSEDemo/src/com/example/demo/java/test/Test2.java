@@ -1,34 +1,47 @@
 package com.example.demo.java.test;
 
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class Test2 {
-    public static void main(String[] args ) {
-        System.out.println("1,2，3".replaceAll(",|，",";"));
+    public static void main(String[] args) throws Exception {
+        doRequest();
     }
 
+    private static void doRequest() {
+        HttpURLConnection conn = null;
+        try {
+            URL url = new URL("http://www.163.com/");
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(5000);
+            conn.setDoInput(true);
+            conn.setDoOutput(false);
+            conn.setRequestMethod("GET"); // 设定请求方式
+            conn.connect();
 
-    private static String resolveSolrField(String fieldName) {
-        fieldName = fieldName.replace("__",".").replace("_",".");
-        List<String> splittedField = new ArrayList<>(Arrays.asList(fieldName.split("\\.")));
-        List<String> finalField = splittedField.subList(1,splittedField.size()-1);
+            InputStream in = conn.getInputStream();
 
-        return String.join(".",finalField);
-    }
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(in));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                // System.out.println(line);
+            }
 
-    private String match(String content,String reg){
-        String fieldValue="";
-        Pattern pattern = Pattern.compile(reg);// ƥ���ģʽ
-        Matcher matcher = pattern.matcher(content);
-        while (matcher.find()) {
-            int i = 1;
-            fieldValue=matcher.group(i);
-            i++;
+            reader.close();
+
+            // 判断是否正常响应数据
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                System.out.println("错误响应码 " + conn.getResponseCode());
+            }
+        } catch (Exception e) {
+            System.out.println("异常！");
+        } finally {
+            if (conn != null) {
+                conn.disconnect(); // 中断连接
+            }
         }
-        return fieldValue;
     }
 
 }

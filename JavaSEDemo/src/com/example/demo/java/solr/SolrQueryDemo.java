@@ -12,7 +12,7 @@ import org.apache.solr.common.SolrInputDocument;
 import java.io.IOException;
 import java.util.*;
 
-public class SolrDemo {
+public class SolrQueryDemo {
     public static void main(String[] args) throws IOException, SolrServerException {
         HttpSolrClient client = new HttpSolrClient.Builder("http://127.0.0.1:8218/hljzyydx-solr/activiti").build();
 
