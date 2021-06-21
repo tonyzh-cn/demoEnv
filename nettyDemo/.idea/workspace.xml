@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ab88339a-aea1-4318-a30a-024f7c641a63" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/netty/selector/MultiplexerTimeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/netty/selector/MultiplexerTimeServer.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="nettyDemo" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1rv4I2n34sKxDZNVcO6ntrpQJnM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mybatisDemo" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RunManager" selected="Application.TimeServer">
+    <configuration name="BioTimeClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.netty.bio.BioTimeClient" />
+      <module name="nettyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.netty.bio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NioTimeClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.netty.nio.NioTimeClient" />
+      <module name="nettyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.netty.nio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NioTimeServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.netty.nio.NioTimeServer" />
+      <module name="nettyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.netty.nio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimeClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.netty.selector.TimeClient" />
+      <module name="nettyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.netty.selector.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimeServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.netty.selector.TimeServer" />
+      <module name="nettyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.netty.selector.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimeServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.netty.selector.TimeServer" />
+      <module name="nettyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.netty.selector.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TimeServer" />
+        <item itemvalue="Application.TimeClient" />
+        <item itemvalue="Application.BioTimeClient" />
+        <item itemvalue="Application.NioTimeServer" />
+        <item itemvalue="Application.NioTimeClient" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ab88339a-aea1-4318-a30a-024f7c641a63" name="Default Changelist" comment="" />
+      <created>1619843146016</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619843146016</updated>
+      <workItem from="1619843149387" duration="2027000" />
+      <workItem from="1619845777208" duration="2061000" />
+      <workItem from="1619854312993" duration="7228000" />
+      <workItem from="1619879098866" duration="5335000" />
+      <workItem from="1619926738565" duration="11179000" />
+      <workItem from="1620133594285" duration="4405000" />
+      <workItem from="1620141083225" duration="1798000" />
+      <workItem from="1620143635210" duration="666000" />
+      <workItem from="1620567990216" duration="39000" />
+    </task>
+    <task id="LOCAL-00001" summary="netty">
+      <created>1619965408384</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619965408384</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="netty" />
+    <option name="LAST_COMMIT_MESSAGE" value="netty" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619928439247">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1619928439247" />
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1619930120612">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1619930120612" />
+    <state x="560" y="117" key="CommitChangelistDialog2" timestamp="1619965406460">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="560" y="117" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1619965406460" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1620568027648">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1620568027648" />
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom" timestamp="1620138306644">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306644" />
+    <state width="1877" height="352" key="GridCell.Tab.0.center" timestamp="1620138306643">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306643" />
+    <state width="1877" height="352" key="GridCell.Tab.0.left" timestamp="1620138306642">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306642" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right" timestamp="1620138306643">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306643" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1620138306466">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306466" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1620138306466">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306466" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1620138306465">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306465" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1620138306466">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306466" />
+    <state width="1877" height="352" key="GridCell.Tab.2.bottom" timestamp="1620138306468">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.2.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306468" />
+    <state width="1877" height="352" key="GridCell.Tab.2.center" timestamp="1620138306467">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.2.center/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306467" />
+    <state width="1877" height="352" key="GridCell.Tab.2.left" timestamp="1620138306467">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.2.left/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306467" />
+    <state width="1877" height="352" key="GridCell.Tab.2.right" timestamp="1620138306467">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.2.right/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306467" />
+    <state width="1877" height="352" key="GridCell.Tab.3.bottom" timestamp="1620138307829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.3.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1620138307829" />
+    <state width="1877" height="352" key="GridCell.Tab.3.center" timestamp="1620138307828">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.3.center/0.0.1920.1050@0.0.1920.1050" timestamp="1620138307828" />
+    <state width="1877" height="352" key="GridCell.Tab.3.left" timestamp="1620138307828">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.3.left/0.0.1920.1050@0.0.1920.1050" timestamp="1620138307828" />
+    <state width="1877" height="352" key="GridCell.Tab.3.right" timestamp="1620138307829">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.3.right/0.0.1920.1050@0.0.1920.1050" timestamp="1620138307829" />
+    <state width="1877" height="352" key="GridCell.Tab.4.bottom" timestamp="1620138306467">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.4.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306467" />
+    <state width="1877" height="352" key="GridCell.Tab.4.center" timestamp="1620138306466">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.4.center/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306466" />
+    <state width="1877" height="352" key="GridCell.Tab.4.left" timestamp="1620138306466">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.4.left/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306466" />
+    <state width="1877" height="352" key="GridCell.Tab.4.right" timestamp="1620138306467">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.4.right/0.0.1920.1050@0.0.1920.1050" timestamp="1620138306467" />
+    <state x="440" y="99" key="SettingsEditor" timestamp="1619928547038">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="440" y="99" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1619928547038" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1619965410712">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1619965410712" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1620139254377">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1620139254377" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/netty/bio/BioTimeServer.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/netty/bio/BioTimeServerHandler.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -3,6 +3,7 @@ package com.tony.demo.service;
 import java.util.List;
 import java.util.Map;
 
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,8 @@ public class UserService  {
 	public List<User> getAll() {
 		return userMapper.getAll();
 	}
-	public List<User> getUsers(Map<String, Object> params) {
-		return userMapper.getUsers(params);
+	public List<User> getUsers(Map<String, Object> params, PageBounds pageBounds) {
+		return userMapper.getUsers(params,pageBounds);
 	}
 
 	public void batchInsert(List<User> users) {

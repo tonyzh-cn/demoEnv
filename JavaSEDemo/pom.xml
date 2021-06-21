@@ -1,4 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>spring-boot</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <version>2.1.5.RELEASE</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>JavaSEDemo</groupId>
   <artifactId>JavaSEDemo</artifactId>
@@ -11,6 +16,11 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.apache.pdfbox</groupId>
       <artifactId>pdfbox</artifactId>
@@ -63,23 +73,20 @@
       <version>1.0.3</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.101tec/zkclient -->
     <dependency>
-      <groupId>org.apache.solr</groupId>
-      <artifactId>solr-solrj</artifactId>
-      <version>7.5.0</version>
+      <groupId>com.101tec</groupId>
+      <artifactId>zkclient</artifactId>
+      <version>0.11</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
     <dependency>
-      <groupId>org.apache.solr</groupId>
-      <artifactId>solr-core</artifactId>
-      <version>7.5.0</version>
+      <groupId>org.openjdk.jol</groupId>
+      <artifactId>jol-core</artifactId>
+      <version>0.10</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.apache.solr</groupId>
-      <artifactId>solr-cell</artifactId>
-      <version>7.5.0</version>
-    </dependency>
 
 
   </dependencies>

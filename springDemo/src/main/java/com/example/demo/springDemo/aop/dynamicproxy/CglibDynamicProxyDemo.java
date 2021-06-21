@@ -1,7 +1,7 @@
 package com.example.demo.springDemo.aop.dynamicproxy;
 
-import com.example.demo.springDemo.aop.common.DefaultEchoService;
-import com.example.demo.springDemo.aop.common.IEchoService;
+import com.example.demo.springDemo.aop.common.DefaultServiceImpl;
+import com.example.demo.springDemo.aop.common.IService;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
@@ -12,8 +12,8 @@ public class CglibDynamicProxyDemo {
     public static void main(String[] args) {
         Enhancer enhancer = new Enhancer();
 
-        enhancer.setSuperclass(DefaultEchoService.class);
-        enhancer.setInterfaces(new Class[]{IEchoService.class});
+        enhancer.setSuperclass(DefaultServiceImpl.class);
+        enhancer.setInterfaces(new Class[]{IService.class});
         enhancer.setCallback(new MethodInterceptor() {
             @Override
             public Object intercept(Object source, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
@@ -26,8 +26,8 @@ public class CglibDynamicProxyDemo {
             }
         });
 
-        IEchoService echoService = (IEchoService) enhancer.create();
+        IService echoService = (IService) enhancer.create();
 
-        System.out.println(echoService.echo("hello"));
+        System.out.println(echoService.execute("hello"));
     }
 }

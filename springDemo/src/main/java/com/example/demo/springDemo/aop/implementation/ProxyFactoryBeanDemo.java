@@ -1,15 +1,14 @@
 package com.example.demo.springDemo.aop.implementation;
 
-import com.example.demo.springDemo.aop.common.IEchoService;
+import com.example.demo.springDemo.aop.common.IService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ProxyFactoryBeanDemo {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-aop-context.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-ProxyFactoryBean-context.xml");
 
-        IEchoService echoService = context.getBean("echoServiceProxyFactoryBean",IEchoService.class);
-
-        System.out.println(echoService.echo("hello"));
+        IService echoService = context.getBean("echoServiceProxyFactoryBean", IService.class);
+        echoService.execute("hello");
 
         context.close();
     }

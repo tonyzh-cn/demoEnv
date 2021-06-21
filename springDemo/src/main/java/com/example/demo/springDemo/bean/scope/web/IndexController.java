@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @RequestMapping("")
 public class IndexController {
@@ -16,11 +19,11 @@ public class IndexController {
     private User user;
 
     @RequestMapping("index.html")
-    public String index(Model model){
+    public String index(HttpServletRequest request, HttpServletResponse response, User user,User user2){
         User u =applicationContext.getBean("user",User.class);
         System.out.println(user == u);
 //        User u2 = applicationContext.getBean("scopedTarget.user",User.class);
-        model.addAttribute("userObject",user);
+        request.setAttribute("userObject",user);
         return "index";
     }
 

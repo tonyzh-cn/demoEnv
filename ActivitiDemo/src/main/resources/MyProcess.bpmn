@@ -4,10 +4,15 @@
     <startEvent id="shenqing" name="shenqing"></startEvent>
     <userTask id="usertask1" name="请假申请"></userTask>
     <sequenceFlow id="flow1" sourceRef="shenqing" targetRef="usertask1"></sequenceFlow>
+
     <userTask id="usertask2" name="班主任" activiti:assignee="李老师"></userTask>
-    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="usertask2"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="usertask2">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${result == 'Y'}]]></conditionExpression>
+    </sequenceFlow>
+
     <userTask id="usertask3" name="教务处" activiti:assignee="王教务"></userTask>
     <sequenceFlow id="flow3" sourceRef="usertask2" targetRef="usertask3"></sequenceFlow>
+
     <endEvent id="endevent2" name="End"></endEvent>
     <sequenceFlow id="flow4" sourceRef="usertask3" targetRef="endevent2"></sequenceFlow>
   </process>
