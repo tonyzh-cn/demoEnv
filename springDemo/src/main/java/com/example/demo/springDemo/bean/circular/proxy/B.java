@@ -16,7 +16,7 @@ public class B {
 //    @AopAnnotation
 //    @Async
 //    @Transactional
-    @Cacheable(value = "b",key = "b")
+//    @Cacheable(value = "b",key = "b")
     public void say(){
         System.out.println("cache");
     }

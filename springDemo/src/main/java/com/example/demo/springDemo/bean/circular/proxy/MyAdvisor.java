@@ -10,8 +10,8 @@ import java.lang.reflect.Method;
 
 //@Component
 public class MyAdvisor extends StaticMethodMatcherPointcutAdvisor {
-//    @Autowired
-//    private A a;
+    @Autowired
+    private A a;
 
     @Override
     public boolean matches(Method method, Class<?> targetClass) {

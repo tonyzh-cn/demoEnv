@@ -34,5 +34,5 @@
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
     </bean>
 
-    <bean id="myAdvisor" class="com.example.demo.springDemo.bean.circular.proxy.MyAdvisor"/>
+    <!--<bean id="myAdvisor" class="com.example.demo.springDemo.bean.circular.proxy.MyAdvisor"/>-->
 </beans>

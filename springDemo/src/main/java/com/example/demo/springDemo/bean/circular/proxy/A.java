@@ -9,11 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class A {
     @Autowired
-//    @Lazy
+    @Lazy
     private B b;
 
 //    @AopAnnotation
-//    @Async
+    @Async
 //    @Transactional
     public void say(){
     }

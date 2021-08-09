@@ -1,6 +1,6 @@
 package com.example.demo.java.net;
 
-import org.springframework.util.Assert;
+//import org.springframework.util.Assert;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -41,8 +41,8 @@ public class FileRequestEntity {
         }
 
         public FileRequestEntity build(){
-            Assert.notNull(this.type,"Type is required.");
-            Assert.notEmpty(this.files,"Files can not be empty.");
+//            Assert.notNull(this.type,"Type is required.");
+//            Assert.notEmpty(this.files,"Files can not be empty.");
 
             return new FileRequestEntity(this);
         }
