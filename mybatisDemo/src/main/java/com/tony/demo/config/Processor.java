@@ -1,6 +1,5 @@
 package com.tony.demo.config;
 
-import com.tony.demo.mapper.UserMapper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.stereotype.Component;
