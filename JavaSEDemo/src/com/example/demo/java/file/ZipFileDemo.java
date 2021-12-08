@@ -11,7 +11,7 @@ public class ZipFileDemo {
     public static void main(String[] args) throws Exception {
 //        unzip(args[0]);
 //        zip();
-        ZipCompress("E:\\Tmp\\upload","E:\\Tmp\\backup\\testZip.zip");
+        ZipCompress("D:\\Tmp\\upload","D:\\Tmp\\upload.zip");
     }
 
     /**
@@ -69,8 +69,8 @@ public class ZipFileDemo {
     }
 
     private static void zip() throws Exception {
-        ZipOutputStream out = new ZipOutputStream(new FileOutputStream("E:\\Tmp\\testUpload\\testZip.zip"));
-        doZip(out,new File("E:\\Tmp\\upload"),"");
+        ZipOutputStream out = new ZipOutputStream(new FileOutputStream("D:\\Tmp\\upload.zip"));
+        doZip(out,new File("D:\\Tmp\\upload"),"");
     }
 
 

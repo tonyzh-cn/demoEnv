@@ -5,7 +5,7 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
-@Component
+//@Component
 public class Processor implements InstantiationAwareBeanPostProcessor {
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
         if(ObjectUtils.nullSafeEquals("userMapper",beanName)){
