@@ -1,11 +1,13 @@
 package com.tony.demo.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.logging.Logger;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.tony.demo.util.AsyncSupport;
+import com.tony.demo.util.ThreadPoolSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +19,77 @@ import com.tony.demo.service.UserService;
 import com.tony.demo.util.NumberUtil;
 import com.tony.demo.util.StringUtil;
 
+import static com.tony.demo.util.ThreadUtil.sleep;
+
 @Controller
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
+
+	@RequestMapping("/future")
+	@ResponseBody
+	public String future() throws Exception {
+		long begin = System.currentTimeMillis();
+		AsyncSupport support = AsyncSupport.begin("future");
+
+		support.addTask(()->{
+			long start = System.currentTimeMillis();
+			sleep(1000);
+			System.out.println("step1 took "+(System.currentTimeMillis()-start)+"ms");
+			return true;
+		});
+
+		support.addTask(()->{
+			long start = System.currentTimeMillis();
+			sleep(1000);
+			System.out.println("step2 took "+(System.currentTimeMillis()-start)+"ms");
+
+			return true;
+		});
+
+		support.complete();
+		return "success";
+	}
+	@RequestMapping("/future2")
+	@ResponseBody
+	public String future2() throws Exception {
+		List<String> names = new ArrayList<>(Arrays.asList("a","b","c"));
+
+		long begin = System.currentTimeMillis();
+
+		List<CompletableFuture> futures = new ArrayList<>();
+		ExecutorService executorService = ThreadPoolSupport.getExecutor("IndexPage");
+
+		futures.add(CompletableFuture.runAsync(() -> {
+			long start = System.currentTimeMillis();
+			sleep(1000);
+			System.out.println("step1 took " + (System.currentTimeMillis() - start) + "ms");
+
+		}, executorService));
+
+		futures.add(CompletableFuture.runAsync(() -> {
+			long start = System.currentTimeMillis();
+			sleep(2000);
+			System.out.println("step2 took " + (System.currentTimeMillis() - start) + "ms");
+
+		}, executorService));
+
+		futures.add(CompletableFuture.runAsync(() -> {
+			long start = System.currentTimeMillis();
+			sleep(3000);
+			System.out.println("step3 took " + (System.currentTimeMillis() - start) + "ms");
+
+		}, executorService));
+
+		CompletableFuture.allOf(futures.toArray(new CompletableFuture[futures.size()])).join();
+		for (CompletableFuture future : futures) {
+			future.get();
+		}
+		System.out.println("total took " + (System.currentTimeMillis() - begin) + "ms");
+
+		return "success";
+	}
+
 	@RequestMapping("/batchInsert")
 	@ResponseBody
 	public String batchInsert() {
