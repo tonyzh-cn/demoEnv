@@ -1,0 +1,94 @@
+package com.examplde.selenium;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static com.examplde.selenium.Context.findElement;
+import static com.examplde.selenium.Context.findElementWait;
+
+/**
+ * @author zhangtao
+ * @since 2022/5/8 12:11
+ */
+public class CommonTest {
+    protected static WebDriver driver = Context.driver;
+
+    @BeforeClass
+    public static void beforeClass(){
+        driver.manage().window().maximize();
+    }
+
+    protected void defaultContent(){
+        driver.switchTo().defaultContent();
+    }
+
+    protected void switchToFrame(String nameOrId){
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(nameOrId);
+    }
+
+    protected void getUrl(String url){
+        driver.get(Context.CONTEXT_PATH+url);
+    }
+
+    protected void getUrlWait(String url){
+        new WebDriverWait(driver, Duration.ofSeconds(50),Duration.ofMillis(1)).until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver text) {
+                getUrl(url);
+                return driver.getCurrentUrl().contains(url);
+            }
+        });
+    }
+
+    protected void loginWait(String url){
+        new WebDriverWait(driver, Duration.ofSeconds(50),Duration.ofMillis(1)).until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver text) {
+                login(url);
+                return driver.getCurrentUrl().contains(url);
+            }
+        });
+    }
+
+    protected void login(String url){
+        getUrl(url);
+        WebElement username = findElement(By.id("username"));
+        WebElement psw = findElement(By.id("password"));
+        if(username !=null && psw !=null){
+            username.sendKeys("admin");
+            psw.sendKeys("pms123");
+            findElement(By.xpath("//input[@type='submit']")).click();
+        }
+    }
+
+    protected void waitDisappear(By by){
+        new WebDriverWait(driver, Duration.ofSeconds(50),Duration.ofSeconds(1)).until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver text) {
+                WebElement tmp = findElement(by);
+                return (tmp == null || !tmp.isDisplayed());
+            }
+        });
+    }
+
+    protected String clickMenu(String xpath){
+        WebElement menuEle=findElementWait(By.xpath(xpath));
+        menuEle.click();
+        String frameName = "iframe"+menuEle.getAttribute("data-index");
+        switchToFrame(frameName);
+        return frameName;
+    }
+
+    protected void clickById(String id){
+        ((JavascriptExecutor) driver).executeScript("document.getElementById('"+id+"').click();");
+    }
+}
