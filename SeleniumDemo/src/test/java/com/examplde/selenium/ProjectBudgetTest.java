@@ -20,8 +20,8 @@ import static java.lang.Thread.sleep;
  * @since 2022/5/6 18:34
  */
 public class ProjectBudgetTest extends CommonTest{
-    private final String projectCode = "20220508231302";
-    private final String budgetFrameName = "iframeundefined";
+    private final String projectCode = "20220509173535";
+    private final String budgetFrameName = "iframebudget";
     @Test
     public void testAssignFund(){
         loginWait("/manage_platform/project.shtml");
@@ -61,7 +61,7 @@ public class ProjectBudgetTest extends CommonTest{
         findElementByIdWait("btn_Save").click();
     }
     @Test
-    public void testAdd() throws InterruptedException {
+    public void testAdd(){
         loginWait("/manage_platform/project.shtml");
 
         //打开纵向项目列表，并搜索

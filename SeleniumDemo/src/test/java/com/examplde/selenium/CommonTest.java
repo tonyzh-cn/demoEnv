@@ -1,18 +1,16 @@
 package com.examplde.selenium;
 
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import static com.examplde.selenium.Context.findElement;
-import static com.examplde.selenium.Context.findElementWait;
 
 /**
  * @author zhangtao
@@ -90,5 +88,45 @@ public class CommonTest {
 
     protected void clickById(String id){
         ((JavascriptExecutor) driver).executeScript("document.getElementById('"+id+"').click();");
+    }
+
+    protected WebElement findElement(By by) {
+        try {
+            return driver.findElement(by);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
+    protected WebElement findElementWait(final By by) {
+        return new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    protected WebElement findElementById(String id) {
+        try {
+            return driver.findElement(By.id(id));
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
+    protected WebElement findElementByIdWait(String id) {
+        return findElementWait(By.id(id));
+    }
+
+    protected Select findSelectByIdByIdWait(String id) {
+        try {
+            return new Select(findElementByIdWait(id));
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
+    protected Select findSelectById(String id) {
+        try {
+            return new Select(findElementById(id));
+        } catch (Exception ex) {
+            return null;
+        }
     }
 }
