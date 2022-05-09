@@ -15,15 +15,15 @@ public class FileUploader {
     private static final Logger log = Logger.getLogger(FileUploader.class);
 
     private static MinioClient minioClient;
-    private final static String url = "http://192.168.52.59:9000/";
+    private final static String url = "http://192.168.52.164:9000/";
 //    private final static String url = "http://192.168.50.22:9000/";
 //    private final static String url = "http://127.0.0.1:9000/";
 
 //    private final static String TEST_PNG_FILE ="D:\\Tmp\\test.png";
-    private final static String TEST_PNG_FILE ="E:\\Tmp\\评审专家信息导入模板.xlsm";
+    private final static String TEST_PNG_FILE ="E:\\Tmp\\a.txt";
     static {
         // 使用MinIO服务的URL，端口，Access key和Secret key创建一个MinioClient对象
-        minioClient = new MinioClient(url, "minioadmin", "minioadmin");
+        minioClient = new MinioClient(url, "admin", "admin3200$%^");
 //            minioClient = new MinioClient(url);
 
     }
@@ -32,8 +32,8 @@ public class FileUploader {
 //        putObject("test");
 //        putObject("test2","test1.png");
 //        buckssetPolicy();
-//        getObject();
-//        getObject("test","test1.png");
+        getObject();
+//        getObject("test","a.txt");
 //        listObjects();
 //        removeBucket();
 //        forceRemoveBucket("aaa");
@@ -48,7 +48,7 @@ public class FileUploader {
 
 //        download();
 
-        uploadObject("csdbdx-award-attachment","评审专家信息导入模板.xlsm", TEST_PNG_FILE);
+//        uploadObject("test","a.txt", TEST_PNG_FILE);
     }
 
     private static void download() throws IOException, InvalidKeyException, NoSuchAlgorithmException, InsufficientDataException, InternalException, InvalidBucketNameException, ErrorResponseException, XmlParserException, ServerException, InvalidResponseException {
@@ -220,8 +220,8 @@ public class FileUploader {
 
     private static void getObject() throws  NoSuchAlgorithmException, InvalidKeyException, IOException {
         try {
-            InputStream is = minioClient.getObject(GetObjectArgs.builder().bucket("hljzyydx-item-attachment").object("2020110219122182579.pdf").build());
-            writeToLocal(is,"E:\\Tmp\\copy.jpg");
+            InputStream is = minioClient.getObject(GetObjectArgs.builder().bucket("hljzyydx-item-attachment-cipd").object("ZXPF201804001038.caj").build());
+            writeToLocal(is,"E:\\Tmp\\copy.caj");
         } catch(MinioException e) {
             System.out.println("Error occurred: " + e);
         }
@@ -301,7 +301,10 @@ public class FileUploader {
         }
     }
 
-    private static void uploadObject(String bucketName, String objectName, String filePath) throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException {
+    private static void uploadObject(String bucketName, String objectName, String filePath) throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException, RegionConflictException {
+        if(!bucketExists(bucketName)){
+            makeBucket(bucketName);
+        }
         minioClient.uploadObject(UploadObjectArgs.builder().bucket(bucketName).object(objectName).filename(filePath).build());
     }
 

@@ -18,8 +18,8 @@ public class CanalClientTest {
 	
     public static void main(String args[]) {
         // 创建链接
-        CanalConnector connector = CanalConnectors.newSingleConnector(new InetSocketAddress(AddressUtils.getHostIp(),
-        		11111), "example", "", "");
+        CanalConnector connector = CanalConnectors.newSingleConnector(new InetSocketAddress("192.168.52.164",
+        		11111), "example", "root", "@123Pms");
         int batchSize = 1000;
         int emptyCount = 0;
         try {
