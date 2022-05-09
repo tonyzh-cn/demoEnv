@@ -1,4 +1,4 @@
-package com.examplde.selenium;
+package com.example.selenium.common;
 
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
@@ -26,11 +26,6 @@ public class CommonTest {
 
     protected void defaultContent(){
         driver.switchTo().defaultContent();
-    }
-
-    protected void switchToFrame(String nameOrId){
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame(nameOrId);
     }
 
     protected void getUrl(String url){
@@ -78,16 +73,45 @@ public class CommonTest {
         });
     }
 
-    protected String clickMenu(String xpath){
-        WebElement menuEle=findElementWait(By.xpath(xpath));
+    protected void switchToFrame(String nameOrId){
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(nameOrId);
+    }
+
+    protected void expandMenu(String text){
+        findElementWait(By.xpath("//span[text()='"+text+"']")).click();
+    }
+
+    protected String jumpFromMenu(String text){
+        return jump2Frame(By.xpath("//a[@title='"+text+"']"),"data-index");
+    }
+
+    protected String jumpFromLinkText(String text){
+        return jump2Frame(By.xpath("//a[text()='"+text+"']"),"flag");
+    }
+
+    protected String jumpFromId(String id){
+        return jump2Frame(By.id(id),"flag");
+    }
+
+    protected String jump2Frame(By by,String flag){
+        WebElement menuEle=findElementWait(by);
         menuEle.click();
-        String frameName = "iframe"+menuEle.getAttribute("data-index");
+        String frameName = "iframe"+menuEle.getAttribute(flag);
         switchToFrame(frameName);
         return frameName;
     }
-
     protected void clickById(String id){
         ((JavascriptExecutor) driver).executeScript("document.getElementById('"+id+"').click();");
+    }
+
+    protected void clickByLinkText(String text){
+        findElementWait(By.xpath("//a[text()='"+text+"']")).click();
+    }
+
+    protected void asyncClick(By by){
+        findElement(by).click();
+        waitDisappear(By.cssSelector(".layui-layer-loading2"));
     }
 
     protected WebElement findElement(By by) {

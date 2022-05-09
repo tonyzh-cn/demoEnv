@@ -1,4 +1,4 @@
-package com.examplde.selenium;
+package com.example.selenium.common;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

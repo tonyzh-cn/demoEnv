@@ -1,23 +1,20 @@
-package com.examplde.selenium;
+package com.example.selenium.cases;
 
+import com.example.selenium.common.CommonTest;
+import com.example.selenium.common.Context;
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-import static com.examplde.selenium.Context.*;
+import static com.example.selenium.common.Context.*;
 import static java.lang.Thread.sleep;
 
 /**
  * @author zhangtao
  * @since 2022/5/8 12:00
  */
-public class ProjectColumnTest extends CommonTest{
+public class ProjectColumnTest extends CommonTest {
 //    private String projectCode = "20220508221851";
     private String projectCode = CURRENT_TIME;
     private String projectName = "自动化测试"+projectCode;
@@ -26,12 +23,11 @@ public class ProjectColumnTest extends CommonTest{
         loginWait("/manage_platform/project.shtml");
 
         //进入项目列表
-        findElementWait(By.xpath("//span[text()='纵向项目']")).click();
-        clickMenu("//a[@title='项目-纵向项目-项目列表']");
+        expandMenu("纵向项目");
+        jumpFromMenu("项目-纵向项目-项目列表");
 
         //进入添加页面
-        findElement(By.id("projectColumnAdd")).click();
-        switchToFrame("iframeprojectColumnAdd");
+        jumpFromId("projectColumnAdd");
 
         //填写项目基本信息
         new Select(findElement(By.id("250_project_type_subjectType_zh"))).selectByValue("001");
@@ -71,13 +67,12 @@ public class ProjectColumnTest extends CommonTest{
     public void testAudit(){
         loginWait("/manage_platform/project.shtml");
         //进入审核列表
-        findElementWait(By.xpath("//span[text()='纵向项目']")).click();
-        String checkFrameName = clickMenu("//a[@title='项目-纵向项目-立项审核']");
+        expandMenu("纵向项目");
+        String checkFrameName = jumpFromMenu("项目-纵向项目-立项审核");
 
         //检索项目
         findElement(By.xpath("//input[@name='project_code']")).sendKeys(projectCode);
-        findElementById("btn_Search").click();
-        waitDisappear(By.cssSelector(".layui-layer-loading2"));
+       asyncClick(By.id("btn_Search"));
 
         //进入审核页面并审核通过
         WebElement check = findElementWait(By.xpath("//td[text()='"+projectCode+"']/../td[last()]/a[text()='审核']"));
@@ -101,6 +96,6 @@ public class ProjectColumnTest extends CommonTest{
 
     @AfterClass
     public static void afterClass(){
-        Context.driver.close();
+//        Context.driver.close();
     }
 }
