@@ -11,7 +11,7 @@ public class ZipFileDemo {
     public static void main(String[] args) throws Exception {
 //        unzip(args[0]);
 //        zip();
-        ZipCompress("E:\\Tmp\\upload","E:\\Tmp\\backup\\testZip.zip");
+        ZipCompress("E:\\msi-config\\upload\\20211109134317","E:\\msi-config\\upload\\20211109134317.zip");
     }
 
     /**
