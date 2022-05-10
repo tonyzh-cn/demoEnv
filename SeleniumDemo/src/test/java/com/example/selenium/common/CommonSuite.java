@@ -11,6 +11,6 @@ public class CommonSuite {
 
     @AfterClass
     public static void afterClass(){
-        Context.driver.close();
+//        Context.driver.close();
     }
 }

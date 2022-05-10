@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static java.lang.Thread.sleep;
+
 public class ProjectFundTest extends CommonTest {
 //    private final String projectCode = Context.CURRENT_TIME;
     private final String projectCode = "20220509210719";
@@ -58,6 +60,11 @@ public class ProjectFundTest extends CommonTest {
      */
     @Test
     public void testAdd(){
+        add();
+        add();
+    }
+
+    private void add(){
         loginWait("/manage_platform/mySpace.shtml");
 
         //进入我的项目列表
@@ -81,7 +88,7 @@ public class ProjectFundTest extends CommonTest {
     }
 
     @Test
-    public void testAudit(){
+    public void testAudit() throws InterruptedException {
         loginWait("/manage_platform/project.shtml");
         expandMenu("纵向经费");
         String checkListFrameName = jumpFromMenu("项目-纵向经费-经费审核");
@@ -99,6 +106,7 @@ public class ProjectFundTest extends CommonTest {
             findElementById("fundApplyCheckPass").click();
             clickById("submitCheck");
             waitDisappear(By.xpath("//h3[text()='"+projectName+"']"));
+            sleep(2000);
             switchToFrame(checkListFrameName);
             WebElement projectCodeEle = findElement(By.xpath("//input[@name='projectFunfsCode']"));
             projectCodeEle.sendKeys(Keys.CONTROL, "a");

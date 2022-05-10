@@ -64,7 +64,7 @@ public class ProjectColumnTest extends CommonTest {
     }
 
     @Test
-    public void testAudit(){
+    public void testAudit() throws InterruptedException {
         loginWait("/manage_platform/project.shtml");
         //进入审核列表
         expandMenu("纵向项目");
@@ -84,6 +84,7 @@ public class ProjectColumnTest extends CommonTest {
             findElementById("projectCheckPass").click();
             clickById("submitCheck");
             waitDisappear(By.xpath("//h3[text()='"+projectName+"']"));
+            sleep(2000);
             switchToFrame(checkFrameName);
             WebElement projectCodeEle = findElement(By.xpath("//input[@name='project_code']"));
             projectCodeEle.sendKeys(Keys.CONTROL, "a");
