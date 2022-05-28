@@ -19,4 +19,6 @@ public interface UserMapper {
 
 	void batchInsert(List<User> users);
 	void createView(@Param(value = "sql") String sql);
+
+	Integer count();
 }

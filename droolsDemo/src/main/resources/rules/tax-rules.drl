@@ -1,0 +1,100 @@
+package rules;
+import com.example.drools.entity.Tax;
+
+rule "tax_计算应纳税所得额"
+salience 100
+date-effective "2011-09-01"
+no-loop true
+when
+    $tax:Tax(preTax>0)
+then
+    $tax.setTaxableIncome($tax.getPreTax()-3500);
+    update($tax);
+ end
+
+rule "tax_rate_1"
+salience 90
+date-effective "2011-09-01"
+no-loop true
+activation-group "set-rate"
+when
+    $tax:Tax(taxableIncome <=1500)
+then
+    $tax.setRate(0.03);
+    $tax.setQuick(0);
+    update($tax);
+ end
+
+ rule "tax_rate_2"
+salience 90
+date-effective "2011-09-01"
+no-loop true
+activation-group "set-rate"
+ when
+     $tax:Tax(taxableIncome >1500 && taxableIncome<=4500)
+ then
+     $tax.setRate(0.1);
+     $tax.setQuick(105);
+    update($tax);
+  end
+
+ rule "tax_rate_3"
+salience 90
+date-effective "2011-09-01"
+no-loop true
+activation-group "set-rate"
+ when
+     $tax:Tax(taxableIncome >4500 && taxableIncome<=9000)
+ then
+     $tax.setRate(0.2);
+     $tax.setQuick(555);
+    update($tax);
+  end
+
+
+ rule "tax_rate_4"
+salience 90
+date-effective "2011-09-01"
+no-loop true
+activation-group "set-rate"
+ when
+     $tax:Tax(taxableIncome >9000 && taxableIncome<=35000)
+ then
+     $tax.setRate(0.25);
+     $tax.setQuick(1005);
+    update($tax);
+  end
+
+  rule "tax_rate_5"
+salience 90
+date-effective "2011-09-01"
+no-loop true
+   when
+      $tax:Tax(taxableIncome >35000 && taxableIncome<=55000)
+   then
+       $tax.setRate(0.3);
+       $tax.setQuick(2755);
+    update($tax);
+    end
+
+    rule "tax_deduction"
+salience 80
+date-effective "2011-09-01"
+no-loop true
+    when
+        $tax:Tax()
+    then
+        $tax.setDeduction($tax.getTaxableIncome()*$tax.getRate()-$tax.getQuick());
+        update($tax);
+    end
+
+rule "tax_afterTax"
+salience 70
+date-effective "2011-09-01"
+no-loop true
+    when
+       $tax:Tax()
+    then
+        $tax.setAfterTax($tax.getPreTax()-$tax.getDeduction());
+        update($tax);
+     end

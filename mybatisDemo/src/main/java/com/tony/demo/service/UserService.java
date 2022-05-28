@@ -49,4 +49,8 @@ public class UserService  {
 				"GROUP BY mi.resource_id";
 		userMapper.createView(sql);
 	}
+
+	public Integer count(){
+		return userMapper.count();
+	}
 }

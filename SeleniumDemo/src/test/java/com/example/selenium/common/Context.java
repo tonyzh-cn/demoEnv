@@ -21,7 +21,7 @@ import java.util.Date;
 public final class Context {
     public static WebDriver driver;
     public static String CURRENT_TIME;
-    public static String CONTEXT_PATH = "http://124.193.98.151:8161/hljzyydx-h";
+    public static String CONTEXT_PATH = "http://192.168.50.254:8080/hljzyydx-h";
 
     static {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "chromedriver.exe");

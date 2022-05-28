@@ -13,7 +13,7 @@ import static java.lang.Thread.sleep;
 
 public class ProjectFundTest extends CommonTest {
 //    private final String projectCode = Context.CURRENT_TIME;
-    private final String projectCode = "20220509210719";
+    private final String projectCode = "20220516123621";
     private String projectName = "自动化测试"+projectCode;
 
 //    @Test
@@ -61,7 +61,7 @@ public class ProjectFundTest extends CommonTest {
     @Test
     public void testAdd(){
         add();
-        add();
+//        add();
     }
 
     private void add(){

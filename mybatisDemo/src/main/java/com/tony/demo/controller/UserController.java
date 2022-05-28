@@ -140,12 +140,16 @@ public class UserController {
 	@RequestMapping("/query")
 	@ResponseBody
 	public String getUser(@RequestParam(required = false) Integer name,@RequestParam(required = false) Integer age) {
-		Map<String,Object> params=new HashMap<String,Object>();
-		params.put("name", name);
-		params.put("age", age);
-		List<User> users = userService.getUsers(params,new PageBounds(1,1));
-		System.out.println(users.toString());
-		return users.toString();
+//		Map<String,Object> params=new HashMap<String,Object>();
+//		params.put("name", name);
+//		params.put("age", age);
+//		List<User> users = userService.getUsers(params,new PageBounds(1,1));
+//		System.out.println(users.toString());
+//		return users.toString();
+
+		System.out.println(userService.count());
+
+		return "s";
 	}
 	
 	@RequestMapping("/byDao")
