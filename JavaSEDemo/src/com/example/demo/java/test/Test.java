@@ -5,15 +5,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.JavaBeanSerializer;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.google.gson.Gson;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
 
 import java.io.InputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -177,9 +175,44 @@ public class Test {
 //        String payload = "{\"@type\":\"org.apache.shiro.jndi.JndiObjectFactory\",\"resourceName\":\"ldap://127.0.0.1:1389/Exploit\"}";
 //        JSONObject.parseObject(payload);
 
-        String msg = "allowanceFunc_calIntegral(1) +  queryCount +  sum ( sum(queryCount) + allowanceFunc_itemWorkloadScale())";
-        List<String> list = getMsg(msg);
-        System.out.println(list);
+//        String msg = "allowanceFunc_calIntegral(1) +  queryCount +  sum ( sum(queryCount) + allowanceFunc_itemWorkloadScale())";
+//        List<String> list = getMsg(msg);
+//        System.out.println(list);
+
+        System.out.println(split("[\\(\\)\\+\\-\\*/]","dc.description.totalwords + allowanceFunc_calIntegral(1) +  queryCount +  sum ( queryCount + allowanceFunc_itemWorkloadScale() )"));
+    }
+
+    public static List<String> split(String regEx, String string) {
+        //string = formatXmlTextValue(string);
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(string);
+        /*按照句子结束符分割句子*/
+        String[] words = p.split(string);
+        List<String> resultList = new LinkedList<>();
+        /*将句子结束符连接到相应的句子后*/
+        if (words.length > 0) {
+            int count = 0;
+            while (count < words.length) {
+                String word = words[count];
+                if (StringUtils.isNotBlank(word)) {
+                    resultList.add(word);
+                }
+                if (m.find()) {
+                    String value = m.group();
+                    if (StringUtils.isNotBlank(value)) {
+                        resultList.add(value);
+                    }
+                }
+                count++;
+            }
+            while (m.find()) {
+                String value = m.group();
+                if (StringUtils.isNotBlank(value)) {
+                    resultList.add(value);
+                }
+            }
+        }
+        return resultList;
     }
 
     public static List<String> getMsg(String msg) {

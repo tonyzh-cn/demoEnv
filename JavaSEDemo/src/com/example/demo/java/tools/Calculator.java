@@ -57,6 +57,9 @@ public class Calculator {
         Stack<BigDecimal> numStack = new Stack<>(); // 数值栈，数值以BigDecimal存储计算，避免精度计算问题
         StringBuilder curNumBuilder = new StringBuilder(16); // 当前正在读取中的数值字符追加器
 
+        //(1*(2+2)-1)+1
+        //筛选指标，运算符，函数
+        //(dc.description.totalwords + allowanceFunc_calIntegral(1) +  queryCount) +    smaller(queryCount,2)
         // 逐个读取字符，并根据运算符判断参与何种计算
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i);
@@ -143,7 +146,7 @@ public class Calculator {
      ** @param optStack 运算符栈
      ** @param numStack 数值栈
      ** @param isBracket true表示为括号类型计算
-     *
+     *(1*(2+2)-1)+1
      */
     public static void directCalc(Stack<String> optStack, Stack<BigDecimal> numStack,
                                   boolean isBracket) {
