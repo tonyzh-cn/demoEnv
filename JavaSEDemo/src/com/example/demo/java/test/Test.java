@@ -179,7 +179,9 @@ public class Test {
 //        List<String> list = getMsg(msg);
 //        System.out.println(list);
 
-        System.out.println(split("[\\(\\)\\+\\-\\*/]","dc.description.totalwords + allowanceFunc_calIntegral(1) +  queryCount +  sum ( queryCount + allowanceFunc_itemWorkloadScale() )"));
+//        System.out.println(split("[\\(\\)\\+\\-\\*/]","dc.description.totalwords + allowanceFunc_calIntegral(1) +  queryCount +  sum ( queryCount + allowanceFunc_itemWorkloadScale() )"));
+
+        System.out.println("(11,23)".replaceAll("\\(|\\)", ""));
     }
 
     public static List<String> split(String regEx, String string) {

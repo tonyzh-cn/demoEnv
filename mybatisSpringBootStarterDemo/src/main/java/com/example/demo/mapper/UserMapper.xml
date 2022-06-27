@@ -6,6 +6,6 @@
 	</select>
 	
 	<insert id="create" parameterType="User">
-		insert into user(name) value(#{name});	
+		insert into user(name1) value(#{name});
 	</insert>
 </mapper>

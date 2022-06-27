@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 
 import com.tony.demo.bean.User;
 import com.tony.demo.mapper.UserMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("userService")
 public class UserService  {
 	@Autowired
 	private UserMapper userMapper;
 
+	@Transactional
 	public void createUser(User user) {
 		userMapper.createUser(user);
 	}
