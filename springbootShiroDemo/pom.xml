@@ -13,7 +13,7 @@
 	<name>springbootShiroDemo Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<shiro.version>1.4.0</shiro.version>
+		<shiro.version>1.5.3</shiro.version>
 		<pac4jVersion>3.3.0</pac4jVersion>
 		<bujiVersion>4.0.0</bujiVersion>
 	</properties>
