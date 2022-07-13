@@ -3,6 +3,7 @@ package com.example.minio;
 import com.sun.javaws.exceptions.InvalidArgumentException;
 import io.minio.*;
 import io.minio.errors.*;
+import io.minio.messages.Bucket;
 import io.minio.messages.Item;
 import org.apache.log4j.Logger;
 
@@ -10,34 +11,35 @@ import java.io.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 
 public class FileUploader {
     private static final Logger log = Logger.getLogger(FileUploader.class);
 
     private static MinioClient minioClient;
-    private final static String url = "http://192.168.52.164:9000/";
+    private final static String url = "http://192.168.50.254:9000/";
 //    private final static String url = "http://192.168.50.22:9000/";
 //    private final static String url = "http://127.0.0.1:9000/";
 
 //    private final static String TEST_PNG_FILE ="D:\\Tmp\\test.png";
-    private final static String TEST_PNG_FILE ="E:\\Tmp\\a.txt";
+    private final static String TEST_PNG_FILE ="E:\\Tmp\\1.txt";
     static {
         // 使用MinIO服务的URL，端口，Access key和Secret key创建一个MinioClient对象
-        minioClient = new MinioClient(url, "admin", "admin3200$%^");
+        minioClient = new MinioClient(url, "admin", "pms123456");
 //            minioClient = new MinioClient(url);
 
     }
-    public static void main(String[] args) throws NoSuchAlgorithmException, IOException, InvalidKeyException, InsufficientDataException, InternalException, RegionConflictException, ErrorResponseException, InvalidArgumentException, InvalidBucketNameException, XmlParserException, ServerException, InvalidResponseException {
+    public static void main(String[] args) throws Exception {
 //        putObject();
+        createBucket();
 //        putObject("test");
 //        putObject("test2","test1.png");
 //        buckssetPolicy();
-        getObject();
+//        getObject();
 //        getObject("test","a.txt");
 //        listObjects();
 //        removeBucket();
 //        forceRemoveBucket("aaa");
-//        createBucket();
 //        forceCreateBucket("aaa");
 
 //        upload("D:\\programs\\mysql-5.7.23-winx64\\data");
@@ -49,6 +51,16 @@ public class FileUploader {
 //        download();
 
 //        uploadObject("test","a.txt", TEST_PNG_FILE);
+
+//        removeAllBuckets();
+    }
+
+    private static void removeAllBuckets() throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException {
+        List<Bucket>  buckets = minioClient.listBuckets();
+
+        for(Bucket bucket : buckets){
+            minioClient.removeBucket(bucket.name());
+        }
     }
 
     private static void download() throws IOException, InvalidKeyException, NoSuchAlgorithmException, InsufficientDataException, InternalException, InvalidBucketNameException, ErrorResponseException, XmlParserException, ServerException, InvalidResponseException {
@@ -178,6 +190,10 @@ public class FileUploader {
             if(!isExist) {
                 makeBucket(bucketName);
                 System.out.println(bucketName + " Bucket created.");
+                for(int i=0;i<=100;i++){
+                    uploadObject(bucketName,i+".txt", TEST_PNG_FILE);
+                }
+
             }
         }
     }

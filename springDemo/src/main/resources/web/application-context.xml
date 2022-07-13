@@ -12,4 +12,6 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <context:component-scan base-package="com.example.demo.springDemo.bean.scope"/>
+
+    <bean id="user" class="com.example.demo.springDemo.entity.User"/>
 </beans>

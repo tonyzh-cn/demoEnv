@@ -22,8 +22,9 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	@Transactional
 	public void methodA() {
-		userMapper.create(new User("A"));
-		methodB();
+		System.out.println("methodA");
+//		userMapper.create(new User("A"));
+//		methodB();
 	}
 	private void methodB() {
 		userMapper.create(new User("B"));
