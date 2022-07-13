@@ -9,7 +9,7 @@
 		<relativePath />
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>mybatisSpringBootStarterDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
@@ -108,7 +108,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>demo</finalName>
+		<finalName>mybatisSpringBootStarterDemo</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

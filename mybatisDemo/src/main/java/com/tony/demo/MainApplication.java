@@ -7,9 +7,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import com.tony.demo.bean.User;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
 @EnableCaching
+@EnableAspectJAutoProxy
 public class MainApplication {
     @Bean
     public User userBean() {
