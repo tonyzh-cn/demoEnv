@@ -14,7 +14,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<shiro.version>1.4.0</shiro.version>
-		<pac4jVersion>3.3.0</pac4jVersion>
+		<pac4jVersion>4.5.5</pac4jVersion>
 		<bujiVersion>4.0.0</bujiVersion>
 	</properties>
 	<dependencies>
